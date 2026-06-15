@@ -1,0 +1,1376 @@
+/* USA State Calculators WordPress Admin Stylesheet */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
+
+:root {
+    --usc-primary: #ea580c;
+    --usc-primary-hover: #c2410c;
+    --usc-primary-light: #ffedd5;
+    --usc-secondary: #0f172a;
+    --usc-bg: #f8fafc;
+    --usc-card-bg: #ffffff;
+    --usc-border: #e2e8f0;
+    --usc-text-main: #334155;
+    --usc-text-muted: #64748b;
+    --usc-success: #16a34a;
+    --usc-success-light: #dcfce7;
+    --usc-info: #0284c7;
+    --usc-info-light: #e0f2fe;
+    --usc-danger: #dc2626;
+    --usc-danger-light: #fee2e2;
+}
+
+/* Global resets for our admin screens */
+.usc-admin-wrap {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
+    color: var(--usc-text-main);
+    max-width: 1200px;
+    margin: 20px 20px 20px 0;
+}
+
+/* Elegant Banner Header */
+.usc-admin-banner {
+    background: linear-gradient(135deg, var(--usc-secondary) 0%, #1e293b 100%);
+    border-radius: 16px;
+    padding: 35px;
+    color: #ffffff;
+    margin-bottom: 30px;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 8px 10px -6px rgba(0, 0, 0, 0.1);
+}
+
+.usc-admin-banner::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    right: -20%;
+    width: 350px;
+    height: 350px;
+    background: radial-gradient(circle, rgba(234, 88, 12, 0.15) 0%, rgba(234, 88, 12, 0) 70%);
+    border-radius: 50%;
+    pointer-events: none;
+}
+
+.usc-admin-banner h1 {
+    font-size: 32px;
+    font-weight: 800;
+    color: #ffffff;
+    margin: 0 0 10px 0;
+    line-height: 1.2;
+    letter-spacing: -0.5px;
+}
+
+.usc-admin-banner p {
+    font-size: 16px;
+    color: #94a3b8;
+    margin: 0 0 20px 0;
+    max-width: 600px;
+    line-height: 1.6;
+}
+
+.usc-admin-banner-actions {
+    display: flex;
+    gap: 12px;
+}
+
+/* Dashboard Action Buttons */
+.usc-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px 18px;
+    font-size: 14px;
+    font-weight: 600;
+    border-radius: 8px;
+    border: none;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    text-decoration: none;
+    gap: 8px;
+}
+
+.usc-btn-primary {
+    background-color: var(--usc-primary);
+    color: #ffffff;
+}
+
+.usc-btn-primary:hover {
+    background-color: var(--usc-primary-hover);
+    color: #ffffff;
+    transform: translateY(-1px);
+}
+
+.usc-btn-secondary {
+    background-color: #334155;
+    color: #f1f5f9;
+}
+
+.usc-btn-secondary:hover {
+    background-color: #475569;
+    color: #ffffff;
+    transform: translateY(-1px);
+}
+
+.usc-btn-white {
+    background-color: #ffffff;
+    color: #0f172a;
+    border: 1px solid var(--usc-border);
+}
+
+.usc-btn-white:hover {
+    background-color: #f8fafc;
+    color: #0f172a;
+    transform: translateY(-1px);
+}
+
+/* Quick Statistics Grid */
+.usc-stats-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 20px;
+    margin-bottom: 30px;
+}
+
+.usc-stat-card {
+    background-color: var(--usc-card-bg);
+    border: 1px solid var(--usc-border);
+    border-radius: 12px;
+    padding: 24px;
+    box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.05);
+    transition: all 0.2s ease;
+    display: flex;
+    flex-direction: column;
+}
+
+.usc-stat-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
+    border-color: #cbd5e1;
+}
+
+.usc-stat-card .usc-stat-icon {
+    font-size: 28px;
+    margin-bottom: 12px;
+}
+
+.usc-stat-card .usc-stat-label {
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--usc-text-muted);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-bottom: 6px;
+}
+
+.usc-stat-card .usc-stat-value {
+    font-size: 28px;
+    font-weight: 700;
+    color: var(--usc-secondary);
+}
+
+/* Two-Column Layout */
+.usc-dashboard-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 24px;
+    margin-top: 30px;
+}
+
+.usc-dashboard-col {
+    flex: 1;
+    min-width: 320px;
+}
+
+/* Premium Layout Panels */
+.usc-panel {
+    background-color: var(--usc-card-bg);
+    border: 1px solid var(--usc-border);
+    border-radius: 12px;
+    box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.05);
+    overflow: hidden;
+    margin-bottom: 24px;
+}
+
+.usc-panel-header {
+    padding: 18px 24px;
+    border-bottom: 1px solid var(--usc-border);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.usc-panel-header h2 {
+    font-size: 16px;
+    font-weight: 700;
+    margin: 0;
+    color: var(--usc-secondary);
+}
+
+.usc-panel-content {
+    padding: 24px;
+}
+
+/* Custom Table Formatting */
+.usc-custom-table {
+    width: 100%;
+    border-collapse: collapse;
+    text-align: left;
+}
+
+.usc-custom-table th {
+    background-color: #f8fafc;
+    padding: 12px 18px;
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--usc-text-muted);
+    border-bottom: 1px solid var(--usc-border);
+}
+
+.usc-custom-table td {
+    padding: 16px 18px;
+    font-size: 13.5px;
+    color: var(--usc-text-main);
+    border-bottom: 1px solid var(--usc-border);
+    vertical-align: middle;
+}
+
+.usc-custom-table tr:last-child td {
+    border-bottom: none;
+}
+
+.usc-custom-table tr:hover td {
+    background-color: #f8fafc;
+}
+
+.usc-badge-run {
+    display: inline-flex;
+    align-items: center;
+    padding: 4px 10px;
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: 700;
+    background-color: var(--usc-info-light);
+    color: var(--usc-info);
+}
+
+.usc-badge-lead {
+    display: inline-flex;
+    align-items: center;
+    padding: 4px 10px;
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: 700;
+    background-color: var(--usc-success-light);
+    color: var(--usc-success);
+}
+
+/* Custom Metabox UI Refactoring */
+.usc-meta-group {
+    background: #ffffff;
+    border: 1px solid var(--usc-border);
+    border-radius: 10px;
+    padding: 20px;
+    margin-bottom: 20px;
+    box-shadow: 0 1px 2px 0 rgba(0,0,0,0.05);
+}
+
+.usc-meta-group-title {
+    font-size: 15px;
+    font-weight: 700;
+    color: var(--usc-secondary);
+    margin: 0 0 15px 0;
+    padding-bottom: 10px;
+    border-bottom: 1px solid var(--usc-border);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.usc-meta-row {
+    margin-bottom: 20px;
+}
+
+.usc-meta-row:last-child {
+    margin-bottom: 0;
+}
+
+.usc-meta-row label {
+    display: block;
+    font-weight: 600;
+    font-size: 13px;
+    color: var(--usc-secondary);
+    margin-bottom: 6px;
+}
+
+.usc-meta-row select, 
+.usc-meta-row input[type="text"] {
+    width: 100%;
+    max-width: 480px;
+    padding: 8px 12px;
+    border: 1px solid #cbd5e1;
+    border-radius: 6px;
+    background-color: #ffffff;
+    color: var(--usc-text-main);
+    box-shadow: 0 1px 2px 0 rgba(0,0,0,0.05);
+    transition: all 0.2s ease;
+}
+
+.usc-meta-row select:focus, 
+.usc-meta-row input[type="text"]:focus {
+    border-color: var(--usc-primary);
+    box-shadow: 0 0 0 3px rgba(234, 88, 12, 0.15);
+    outline: none;
+}
+
+.usc-meta-info-alert {
+    background-color: #f8fafc;
+    border-left: 4px solid var(--usc-primary);
+    padding: 12px 16px;
+    border-radius: 0 8px 8px 0;
+    margin-top: 5px;
+    margin-bottom: 15px;
+}
+
+.usc-meta-info-alert p {
+    margin: 0;
+    font-size: 13px;
+    color: var(--usc-text-muted);
+    line-height: 1.5;
+}
+
+/* Custom Editor Textarea & CodeMirror Container */
+.usc-editor-container {
+    border: 1px solid var(--usc-border);
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 1px 2px 0 rgba(0,0,0,0.05);
+    margin-top: 8px;
+}
+
+.usc-editor-header {
+    background-color: #f8fafc;
+    padding: 10px 16px;
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--usc-text-muted);
+    border-bottom: 1px solid var(--usc-border);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.usc-editor-header span.lang-tag {
+    background-color: #e2e8f0;
+    color: #475569;
+    padding: 2px 6px;
+    border-radius: 4px;
+    font-size: 10px;
+    text-transform: uppercase;
+}
+
+.usc-meta-textarea {
+    width: 100%;
+    min-height: 250px;
+    border: none;
+    font-family: 'Fira Code', 'Courier New', Courier, monospace;
+    font-size: 13px;
+    padding: 12px;
+}
+
+/* CodeMirror overrides for WP integration */
+.usc-editor-container .CodeMirror {
+    height: 350px !important;
+    font-size: 13px;
+}
+
+/* Custom FAQ Schema Builder in Admin */
+#usc-faq-wrapper {
+    margin-bottom: 15px;
+}
+
+.usc-faq-row {
+    border: 1px solid var(--usc-border) !important;
+    padding: 16px !important;
+    margin-bottom: 15px !important;
+    background: #ffffff !important;
+    border-radius: 8px !important;
+    box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.03) !important;
+    position: relative;
+    transition: all 0.2s ease;
+}
+
+.usc-faq-row:hover {
+    border-color: #cbd5e1 !important;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05) !important;
+}
+
+.usc-faq-row-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 12px;
+    border-bottom: 1px solid #f1f5f9;
+    padding-bottom: 8px;
+}
+
+.usc-faq-row-title {
+    font-weight: 700;
+    font-size: 13px;
+    color: var(--usc-secondary);
+}
+
+.usc-faq-delete-btn {
+    background: none;
+    border: none;
+    color: var(--usc-danger);
+    font-weight: 600;
+    cursor: pointer;
+    font-size: 12px;
+    padding: 4px 8px;
+    border-radius: 4px;
+    transition: all 0.2s ease;
+}
+
+.usc-faq-delete-btn:hover {
+    background-color: var(--usc-danger-light);
+}
+
+.usc-faq-row input[type="text"],
+.usc-faq-row textarea {
+    width: 100% !important;
+    box-sizing: border-box !important;
+    border: 1px solid #cbd5e1 !important;
+    border-radius: 6px !important;
+    padding: 8px 12px !important;
+    font-size: 13px !important;
+    margin-bottom: 10px !important;
+    box-shadow: 0 1px 2px 0 rgba(0,0,0,0.05) !important;
+    transition: all 0.2s ease !important;
+}
+
+.usc-faq-row textarea {
+    margin-bottom: 0 !important;
+    height: 70px !important;
+    resize: vertical;
+}
+
+.usc-faq-row input[type="text"]:focus,
+.usc-faq-row textarea:focus {
+    border-color: var(--usc-primary) !important;
+    box-shadow: 0 0 0 3px rgba(234, 88, 12, 0.15) !important;
+    outline: none !important;
+}
+
+/* Unified Dashboard Navigation Bar Styling */
+.usc-admin-nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: var(--usc-secondary);
+    padding: 14px 24px;
+    border-radius: 12px;
+    margin-bottom: 24px;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.08), 0 2px 4px -1px rgba(0, 0, 0, 0.04);
+}
+
+.usc-admin-nav-brand {
+    font-size: 16px;
+    font-weight: 800;
+    color: #ffffff;
+    display: flex;
+    align-items: center;
+    letter-spacing: -0.25px;
+}
+
+.usc-admin-nav-links {
+    display: flex;
+    gap: 6px;
+}
+
+.usc-admin-nav-links a {
+    color: #94a3b8;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 13px;
+    padding: 8px 16px;
+    border-radius: 6px;
+    transition: all 0.2s ease;
+    display: inline-flex;
+    align-items: center;
+}
+
+.usc-admin-nav-links a:hover {
+    color: #ffffff;
+    background-color: rgba(255, 255, 255, 0.06);
+}
+
+.usc-admin-nav-links a.active {
+    color: #ffffff;
+    background-color: var(--usc-primary);
+}
+
+/* Enhance existing admin layout elements slightly */
+.usc-admin-wrap {
+    margin-top: 10px;
+}
+.usc-admin-banner {
+    margin-bottom: 24px;
+}
+
+/* Style WP List Table for CPT page to look premium */
+.post-type-usc_calculator #wpbody-content {
+    background-color: #f8fafc;
+    padding: 20px;
+}
+.post-type-usc_calculator .wrap {
+    background: #ffffff;
+    border: 1px solid var(--usc-border);
+    border-radius: 12px;
+    padding: 24px;
+    box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.05);
+    margin: 20px 20px 20px 0;
+}
+.post-type-usc_calculator .wrap h1.wp-heading-inline {
+    font-size: 24px;
+    font-weight: 800;
+    color: var(--usc-secondary);
+    letter-spacing: -0.5px;
+    margin-bottom: 15px;
+}
+.post-type-usc_calculator .wrap .page-title-action {
+    background: var(--usc-primary) !important;
+    border: none !important;
+    color: #ffffff !important;
+    font-weight: 600 !important;
+    border-radius: 6px !important;
+    padding: 6px 14px !important;
+    transition: all 0.2s ease !important;
+    box-shadow: 0 1px 2px rgba(234, 88, 12, 0.2);
+}
+.post-type-usc_calculator .wrap .page-title-action:hover {
+    background: var(--usc-primary-hover) !important;
+    transform: translateY(-1px);
+}
+.post-type-usc_calculator .wp-list-table {
+    border: 1px solid var(--usc-border) !important;
+    border-radius: 8px !important;
+    box-shadow: none !important;
+    overflow: hidden !important;
+}
+.post-type-usc_calculator .wp-list-table th {
+    background: #f8fafc !important;
+    color: var(--usc-text-muted) !important;
+    font-weight: 600 !important;
+    border-bottom: 2px solid var(--usc-border) !important;
+}
+.post-type-usc_calculator .wp-list-table td {
+    vertical-align: middle !important;
+    border-bottom: 1px solid var(--usc-border) !important;
+}
+.post-type-usc_calculator .wp-list-table tr:hover {
+    background-color: #f8fafc !important;
+}
+.post-type-usc_calculator .wp-list-table tr:hover td {
+    background-color: #f8fafc !important;
+}
+.post-type-usc_calculator .wp-list-table a.row-title {
+    color: var(--usc-secondary) !important;
+    font-weight: 700 !important;
+    font-size: 14px;
+}
+.post-type-usc_calculator .wp-list-table a.row-title:hover {
+    color: var(--usc-primary) !important;
+}
+.post-type-usc_calculator .wp-list-table .row-actions a {
+    color: var(--usc-text-muted) !important;
+    font-weight: 500;
+}
+.post-type-usc_calculator .wp-list-table .row-actions a:hover {
+    color: var(--usc-primary) !important;
+}
+.post-type-usc_calculator .tablenav {
+    margin: 15px 0;
+}
+.post-type-usc_calculator .tablenav .button,
+.post-type-usc_calculator .search-box input[type="submit"] {
+    border: 1px solid var(--usc-border) !important;
+    background: #ffffff !important;
+    color: var(--usc-text-main) !important;
+    border-radius: 6px !important;
+    font-weight: 600 !important;
+    padding: 4px 12px !important;
+    box-shadow: 0 1px 2px rgba(0,0,0,0.03) !important;
+    height: auto !important;
+}
+.post-type-usc_calculator .tablenav .button:hover,
+.post-type-usc_calculator .search-box input[type="submit"]:hover {
+    background: #f8fafc !important;
+    border-color: #cbd5e1 !important;
+}
+.post-type-usc_calculator .search-box input[type="search"] {
+    border: 1px solid var(--usc-border) !important;
+    border-radius: 6px !important;
+    padding: 4px 10px !important;
+    margin-right: 6px !important;
+    height: auto !important;
+}
+.post-type-usc_calculator .subsubsub {
+    margin-bottom: 15px;
+}
+.post-type-usc_calculator .subsubsub a {
+    color: var(--usc-text-muted);
+    font-weight: 500;
+}
+.post-type-usc_calculator .subsubsub a.current {
+    color: var(--usc-primary);
+    font-weight: 700;
+}
+
+/* State-by-State Management Hub Styling */
+.usc-state-hub-panel {
+    margin-top: 30px;
+}
+.usc-panel-header-left h2 {
+    font-size: 20px !important;
+    font-weight: 800 !important;
+    margin: 0 !important;
+    color: var(--usc-secondary) !important;
+}
+.usc-panel-header-right {
+    display: flex;
+    align-items: center;
+}
+.usc-search-box-wrap {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+.usc-search-box-wrap .search-icon {
+    position: absolute;
+    left: 10px;
+    color: var(--usc-text-muted);
+}
+.usc-search-box-wrap input[type="text"] {
+    padding: 8px 12px 8px 32px !important;
+    border: 1px solid var(--usc-border) !important;
+    border-radius: 8px !important;
+    width: 260px !important;
+    font-size: 13px !important;
+    color: var(--usc-text-main) !important;
+    background: #ffffff !important;
+    transition: all 0.2s ease !important;
+    box-shadow: 0 1px 2px rgba(0,0,0,0.02) !important;
+    height: auto !important;
+}
+.usc-search-box-wrap input[type="text"]:focus {
+    border-color: var(--usc-primary) !important;
+    box-shadow: 0 0 0 3px rgba(234, 88, 12, 0.1) !important;
+    outline: none !important;
+}
+
+/* Category Tabs Navigation */
+.usc-tabs-container {
+    margin: 15px 0 0 0;
+    border-bottom: 2px solid var(--usc-border);
+    padding: 0 24px;
+}
+.usc-tabs-nav {
+    display: flex;
+    gap: 4px;
+    flex-wrap: wrap;
+    margin-bottom: -2px;
+}
+.usc-tab-btn {
+    background: transparent;
+    border: none;
+    border-bottom: 2px solid transparent;
+    padding: 12px 16px;
+    font-size: 13.5px;
+    font-weight: 700;
+    color: var(--usc-text-muted);
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    transition: all 0.2s ease;
+    outline: none;
+}
+.usc-tab-btn:hover {
+    color: var(--usc-secondary);
+    border-bottom-color: #cbd5e1;
+}
+.usc-tab-btn.active {
+    color: var(--usc-primary);
+    border-bottom-color: var(--usc-primary);
+}
+.usc-tab-icon {
+    font-size: 15px;
+}
+.usc-tab-badge {
+    background: #f1f5f9;
+    color: #475569;
+    font-size: 10px;
+    font-weight: 700;
+    padding: 2px 6px;
+    border-radius: 6px;
+}
+.usc-tab-btn.active .usc-tab-badge {
+    background: var(--usc-primary-light);
+    color: var(--usc-primary);
+}
+
+/* Tab Content */
+.usc-tabs-content {
+    margin-top: 15px;
+}
+.usc-tab-pane {
+    animation: uscFadeIn 0.25s ease-out;
+}
+@keyframes uscFadeIn {
+    from { opacity: 0; transform: translateY(3px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.usc-registry-table th {
+    font-size: 12px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+.usc-registry-table td {
+    padding: 12px 18px;
+}
+.usc-state-flag {
+    font-size: 15px;
+    margin-right: 4px;
+}
+
+/* Status Badges */
+.usc-status-pill {
+    font-size: 10px;
+    font-weight: 700;
+    padding: 3px 8px;
+    border-radius: 12px;
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    text-transform: uppercase;
+}
+.usc-status-pill.status-publish {
+    background: var(--usc-success-light);
+    color: var(--usc-success);
+}
+.usc-status-pill.status-draft {
+    background: #fef9c3;
+    color: #a16207;
+}
+.usc-status-pill.status-missing {
+    background: var(--usc-danger-light);
+    color: var(--usc-danger);
+}
+
+.usc-runs-badge {
+    background: var(--usc-info-light);
+    color: var(--usc-info);
+    font-size: 11px;
+    font-weight: 700;
+    border-radius: 6px;
+    padding: 3px 8px;
+    display: inline-block;
+}
+
+.usc-action-buttons {
+    display: flex;
+    gap: 4px;
+}
+.usc-action-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 28px;
+    height: 28px;
+    border-radius: 6px;
+    border: 1px solid var(--usc-border);
+    background: #ffffff;
+    color: var(--usc-text-muted) !important;
+    text-decoration: none;
+    transition: all 0.15s ease;
+}
+.usc-action-icon span.dashicons {
+    font-size: 15px;
+    width: 15px;
+    height: 15px;
+    line-height: 15px;
+}
+.usc-action-icon:hover {
+    background: var(--usc-bg);
+}
+.usc-action-icon.edit:hover {
+    color: var(--usc-primary) !important;
+    border-color: #fdba74;
+}
+.usc-action-icon.view:hover {
+    color: var(--usc-info) !important;
+    border-color: #7dd3fc;
+}
+.usc-action-icon.disabled {
+    opacity: 0.35;
+    cursor: not-allowed;
+}
+
+/* Analytics Panels and strength bars */
+.usc-analytics-panel th {
+    font-size: 12px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+.usc-strength-bar-wrap {
+    box-shadow: inset 0 1px 2px rgba(0,0,0,0.05);
+}
+.usc-strength-bar {
+    border-radius: 6px;
+    box-shadow: 0 1px 2px rgba(0,0,0,0.1);
+}
+
+/* ==========================================================================
+   Premium Mockup UI Elements (V5 Dashboard)
+   ========================================================================== */
+
+/* 1. Header Banner Styling */
+.usc-dashboard-banner-new {
+    background: linear-gradient(135deg, #1e1b4b 0%, #311042 100%);
+    border-radius: 16px;
+    padding: 30px;
+    color: #ffffff;
+    margin-bottom: 24px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 20px;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 10px 30px -5px rgba(49, 16, 66, 0.15), 0 8px 15px -6px rgba(0, 0, 0, 0.1);
+}
+
+.usc-dashboard-banner-new::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    right: -10%;
+    width: 400px;
+    height: 400px;
+    background: radial-gradient(circle, rgba(139, 92, 246, 0.15) 0%, rgba(139, 92, 246, 0) 70%);
+    border-radius: 50%;
+    pointer-events: none;
+}
+
+.usc-banner-left {
+    z-index: 1;
+}
+
+.usc-banner-title-row {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 12px;
+}
+
+.usc-banner-icon {
+    font-size: 28px;
+}
+
+.usc-dashboard-banner-new h1 {
+    font-size: 28px;
+    font-weight: 800;
+    color: #ffffff;
+    margin: 0;
+    letter-spacing: -0.5px;
+    line-height: 1.2;
+}
+
+.usc-banner-status-checks {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    flex-wrap: wrap;
+    font-size: 13.5px;
+    font-weight: 500;
+    color: #c7d2fe;
+}
+
+.usc-chk-icon {
+    color: #34d399;
+    font-weight: 800;
+    margin-left: 2px;
+}
+
+.usc-divider {
+    color: #4338ca;
+    font-weight: 300;
+}
+
+.usc-banner-right {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    z-index: 1;
+}
+
+.usc-banner-tool-badge {
+    background: rgba(255, 255, 255, 0.08);
+    backdrop-filter: blur(8px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    color: #e0e7ff;
+    padding: 8px 16px;
+    border-radius: 30px;
+    font-size: 13px;
+    font-weight: 600;
+}
+
+.usc-banner-btn-white {
+    background: #ffffff;
+    color: #1e1b4b;
+    padding: 10px 18px;
+    border-radius: 8px;
+    font-weight: 600;
+    font-size: 13.5px;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    transition: all 0.2s ease;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+}
+
+.usc-banner-btn-white:hover {
+    background: #f8fafc;
+    transform: translateY(-1px);
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.05);
+}
+
+.usc-banner-btn-purple {
+    background: linear-gradient(135deg, #8b5cf6 0%, #6d28d9 100%);
+    color: #ffffff;
+    padding: 10px 18px;
+    border-radius: 8px;
+    font-weight: 600;
+    font-size: 13.5px;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    transition: all 0.2s ease;
+    box-shadow: 0 4px 12px rgba(139, 92, 246, 0.25);
+    border: none;
+}
+
+.usc-banner-btn-purple:hover {
+    background: linear-gradient(135deg, #a78bfa 0%, #7c3aed 100%);
+    transform: translateY(-1px);
+    box-shadow: 0 10px 20px -3px rgba(139, 92, 246, 0.35);
+}
+
+/* 2. Metrics Grid Styling */
+.usc-metrics-grid-new {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+    margin-bottom: 24px;
+}
+
+@media (max-width: 1024px) {
+    .usc-metrics-grid-new {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 640px) {
+    .usc-metrics-grid-new {
+        grid-template-columns: 1fr;
+    }
+}
+
+.usc-metric-card-new {
+    background: #ffffff;
+    border: 1px solid var(--usc-border);
+    border-radius: 16px;
+    padding: 20px;
+    box-shadow: 0 4px 20px -2px rgba(15,23,42,0.05);
+    transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.usc-metric-card-new:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 12px 25px -5px rgba(15,23,42,0.08);
+    border-color: #cbd5e1;
+}
+
+.usc-metric-card-header {
+    display: flex;
+    align-items: center;
+}
+
+.usc-metric-icon {
+    font-size: 22px;
+    width: 44px;
+    height: 44px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 10px;
+}
+
+.usc-metric-icon.icon-blue { background: #eff6ff; }
+.usc-metric-icon.icon-yellow { background: #fefce8; }
+.usc-metric-icon.icon-orange { background: #fff7ed; }
+.usc-metric-icon.icon-green { background: #f0fdf4; }
+
+.usc-metric-card-body h2 {
+    font-size: 32px;
+    font-weight: 800;
+    color: #1e293b;
+    margin: 0 0 4px 0;
+    line-height: 1;
+}
+
+.usc-metric-card-body p {
+    font-size: 11px;
+    font-weight: 700;
+    color: #64748b;
+    margin: 0;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+}
+
+/* 3. Horizontal Status Check Bar */
+.usc-status-check-bar {
+    background: #ffffff;
+    border: 1px solid var(--usc-border);
+    border-radius: 12px;
+    padding: 14px 20px;
+    margin-bottom: 24px;
+    display: flex;
+    align-items: center;
+    gap: 32px;
+    flex-wrap: wrap;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.02);
+}
+
+.usc-status-check-item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 13px;
+    font-weight: 600;
+    color: #475569;
+}
+
+.usc-status-check-item span.dashicons {
+    color: #94a3b8;
+    font-size: 18px;
+    width: 18px;
+    height: 18px;
+}
+
+.usc-dot-light {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    display: inline-block;
+    position: relative;
+}
+
+.usc-dot-light.green {
+    background-color: #22c55e;
+}
+
+.usc-dot-light.green::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    background: #22c55e;
+    animation: uscPulse 2s infinite ease-in-out;
+}
+
+@keyframes uscPulse {
+    0% { transform: scale(1); opacity: 0.8; }
+    100% { transform: scale(2.4); opacity: 0; }
+}
+
+/* 4. Hinglish Search Input Styling */
+.usc-search-box-large {
+    position: relative;
+    margin-bottom: 24px;
+}
+
+.usc-search-box-large input[type="text"] {
+    width: 100% !important;
+    height: 56px !important;
+    background: #ffffff !important;
+    border: 1px solid var(--usc-border) !important;
+    border-radius: 12px !important;
+    padding: 16px 20px 16px 52px !important;
+    font-size: 15px !important;
+    color: #1e293b !important;
+    box-shadow: 0 4px 15px -3px rgba(15,23,42,0.03) !important;
+    transition: all 0.2s ease !important;
+}
+
+.usc-search-box-large input[type="text"]:focus {
+    border-color: #8b5cf6 !important;
+    box-shadow: 0 0 0 4px rgba(139, 92, 246, 0.12) !important;
+    outline: none !important;
+}
+
+.usc-search-box-large .large-search-icon {
+    position: absolute;
+    left: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 22px;
+    width: 22px;
+    height: 22px;
+    color: #64748b;
+    pointer-events: none;
+}
+
+/* 5. Category Filter Pills */
+.usc-category-pills-wrap {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+    margin-bottom: 24px;
+}
+
+.usc-category-pill {
+    background: #ffffff;
+    border: 1px solid var(--usc-border);
+    border-radius: 30px;
+    padding: 8px 18px;
+    font-size: 13.5px;
+    font-weight: 600;
+    color: #475569;
+    cursor: pointer;
+    transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+    outline: none;
+}
+
+.usc-category-pill:hover {
+    background: #f8fafc;
+    color: #1e293b;
+    border-color: #cbd5e1;
+}
+
+.usc-category-pill.active {
+    background: linear-gradient(135deg, #8b5cf6 0%, #6d28d9 100%);
+    color: #ffffff;
+    border-color: transparent;
+    box-shadow: 0 4px 12px rgba(139, 92, 246, 0.25);
+}
+
+/* 6. Grid Cards & Calculator Cards */
+.usc-calc-cards-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+    gap: 24px;
+    margin-bottom: 40px;
+}
+
+.usc-calc-card {
+    background: #ffffff;
+    border: 1px solid var(--usc-border);
+    border-radius: 16px;
+    padding: 24px;
+    box-shadow: 0 4px 20px -2px rgba(15,23,42,0.05);
+    transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+    display: flex;
+    flex-direction: column;
+}
+
+.usc-calc-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 25px -5px rgba(15,23,42,0.08);
+    border-color: #cbd5e1;
+}
+
+.usc-calc-card-header {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin-bottom: 16px;
+}
+
+.usc-card-icon-wrap {
+    width: 48px;
+    height: 48px;
+    background: #f8fafc;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 24px;
+    flex-shrink: 0;
+}
+
+.usc-card-title-wrap {
+    flex-grow: 1;
+    overflow: hidden;
+}
+
+.usc-card-title-wrap h3 {
+    font-size: 15px;
+    font-weight: 700;
+    color: #1e293b;
+    margin: 0 0 4px 0;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.usc-card-status {
+    font-size: 10px;
+    font-weight: 700;
+    padding: 2px 8px;
+    border-radius: 12px;
+    text-transform: uppercase;
+    display: inline-block;
+}
+
+.usc-card-status.status-publish {
+    background: #dcfce7;
+    color: #15803d;
+}
+
+.usc-card-status.status-draft {
+    background: #fef9c3;
+    color: #854d0e;
+}
+
+.usc-card-desc {
+    font-size: 13px;
+    line-height: 1.5;
+    color: #64748b;
+    margin: 0 0 16px 0;
+    flex-grow: 1;
+}
+
+.usc-copy-box-wrap {
+    display: flex;
+    background: #f8fafc;
+    border: 1px solid var(--usc-border);
+    border-radius: 8px;
+    overflow: hidden;
+    margin-bottom: 20px;
+    align-items: center;
+}
+
+.usc-copy-input {
+    background: transparent !important;
+    border: none !important;
+    padding: 8px 12px !important;
+    font-size: 12.5px !important;
+    font-family: monospace !important;
+    color: #475569 !important;
+    width: 100% !important;
+    box-shadow: none !important;
+    outline: none !important;
+    height: auto !important;
+}
+
+.usc-copy-btn {
+    background: #ffffff;
+    border: none;
+    border-left: 1px solid var(--usc-border);
+    padding: 8px 16px;
+    font-weight: 700;
+    font-size: 12.5px;
+    color: #6366f1;
+    cursor: pointer;
+    transition: all 0.15s ease;
+    white-space: nowrap;
+}
+
+.usc-copy-btn:hover {
+    background: #f1f5f9;
+    color: #4f46e5;
+}
+
+.usc-copy-btn.copied {
+    background: #dcfce7 !important;
+    color: #15803d !important;
+}
+
+.usc-calc-card-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-top: 1px solid #f1f5f9;
+    padding-top: 16px;
+    margin-top: auto;
+}
+
+.usc-footer-meta {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.usc-tag-badge {
+    background: #e0f2fe;
+    color: #0369a1;
+    font-size: 10px;
+    font-weight: 700;
+    padding: 3px 8px;
+    border-radius: 6px;
+    text-transform: uppercase;
+}
+
+.usc-badge-run-mini {
+    background: #f1f5f9;
+    color: #475569;
+    font-size: 10px;
+    font-weight: 700;
+    padding: 3px 8px;
+    border-radius: 6px;
+}
+
+.usc-footer-actions {
+    display: flex;
+    gap: 6px;
+}
+
+.usc-footer-action-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 32px;
+    height: 32px;
+    border-radius: 8px;
+    border: 1px solid var(--usc-border);
+    background: #ffffff;
+    color: #64748b !important;
+    text-decoration: none;
+    transition: all 0.15s ease;
+}
+
+.usc-footer-action-btn:hover {
+    background: #f8fafc;
+}
+
+.usc-footer-action-btn.edit:hover {
+    color: #ea580c !important;
+    border-color: #fdba74;
+}
+
+.usc-footer-action-btn.view:hover {
+    color: #0284c7 !important;
+    border-color: #7dd3fc;
+}
+
